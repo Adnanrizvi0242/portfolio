@@ -1,0 +1,31 @@
+@import "tailwindcss";
+@theme {
+  --color-ink: #f3ece0; --color-panel: #fbf8f1; --color-line: #d9cdb8;
+  --color-text: #1d2230; --color-mute: #565d6e; --color-accent: #1f56a5;
+  --font-sans: var(--font-sg), system-ui, sans-serif;
+}
+html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+body { background: var(--color-ink); color: var(--color-text); font-family: var(--font-sans); }
+.grid-bg { position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background-image: linear-gradient(var(--color-line) 1px, transparent 1px), linear-gradient(90deg, var(--color-line) 1px, transparent 1px);
+  background-size: 56px 56px; opacity: .55;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 20%, #000 30%, transparent 80%); }
+.glow { position: fixed; z-index: -1; width: 46rem; height: 46rem; top: -14rem; left: 50%; translate: -50% 0; border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(31,86,165,.14), transparent); animation: drift 18s ease-in-out infinite alternate; pointer-events: none; }
+@keyframes drift { to { translate: -35% 4rem; } }
+.flow { stroke-dasharray: 6 8; animation: flow 1.2s linear infinite; }
+@keyframes flow { to { stroke-dashoffset: -14; } }
+:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 3px; border-radius: 4px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .glow, .flow { animation: none; } * { transition-duration: .01ms !important; } }
+
+.spot { position: relative; transition: transform .25s, box-shadow .25s, border-color .25s; }
+.spot::before { content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; opacity: 0; transition: opacity .3s;
+  background: radial-gradient(280px circle at var(--mx, 50%) var(--my, 50%), rgba(31,86,165,.16), transparent 70%); }
+.spot:hover::before { opacity: 1; }
+.spot:hover { box-shadow: 0 18px 40px -22px rgba(31,86,165,.45); border-color: rgba(31,86,165,.5); }
+.cursor-glow { position: fixed; top: 0; left: 0; z-index: 60; pointer-events: none; opacity: 0; transition: transform .14s ease-out, opacity .3s; }
+.cursor-glow::before { content: ""; position: absolute; left: -9rem; top: -9rem; width: 18rem; height: 18rem; border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(31,86,165,.16), transparent); }
+@media (hover: none), (prefers-reduced-motion: reduce) { .cursor-glow { display: none; } }
+.chip { transition: border-color .2s, color .2s, transform .2s, background .2s; }
+.chip:hover { border-color: var(--color-accent); color: var(--color-accent); background: rgba(31,86,165,.07); transform: translateY(-2px); }
