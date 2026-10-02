@@ -6,7 +6,7 @@ export const site = {
   summary:
     "Python and FastAPI services, Generative AI workflows, and data and ML pipelines, built to run in production.",
   email: "adnanrizvi20001@gmail.com",
-  phone: "7061150063",
+  phone: "+91-7061150063",
   github: "https://github.com/Adnanrizvi0242?tab=repositories",
   linkedin: "https://www.linkedin.com/in/adnan20001",
   resume: "/Adnan_Rizvi_Resume.pdf",
