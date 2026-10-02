@@ -1,4 +1,5 @@
 export const site = {
+  cursorEffect: "none",
   name: "Adnan Rizvi",
   title: "Software Engineer | AI / Backend / Data",
   headline: "Software engineer building backend systems and intelligent AI applications.",
