@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Schibsted_Grotesk } from "next/font/google";
 import { site } from "@/data/portfolio";
 import { Spotlight } from "@/components/Spotlight";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const sg = Schibsted_Grotesk({ subsets: ["latin"], variable: "--font-sg", display: "swap" });
@@ -24,6 +25,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Spotlight /><div className="grid-bg" aria-hidden /><div className="glow" aria-hidden />
         {children}
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ld) }} />
+        <Analytics />
       </body>
     </html>
   );
